@@ -24,8 +24,6 @@ public class PropertiesUtils {
 	 * with the configuration defined in the property file totalCols Integer:
 	 * Number of total columns to get value from a data row
 	 * 
-	 * @return <b>void</b>
-	 * 
 	 * @author afajardo
 	 */
 	public static void getDataRowCellsConfiguredValues(String sheetItemString, SheetDTO sheet, Integer totalCols) {
@@ -59,8 +57,6 @@ public class PropertiesUtils {
 	 * properties value defined sheet SheetDTO: DTO that represents the sheet
 	 * with the configuration defined in the property file totalCells Integer:
 	 * Number of total concrete cells to get value from the sheet
-	 * 
-	 * @return <b>void</b>
 	 * 
 	 * @author afajardo
 	 */

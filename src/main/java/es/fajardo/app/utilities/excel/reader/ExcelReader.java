@@ -26,6 +26,139 @@ import es.fajardo.app.utilities.excel.reader.dto.WorkbookDTO;
 import es.fajardo.app.utilities.excel.reader.enums.TipoProperitiesExcelEnum;
 import es.fajardo.app.utilities.excel.reader.utils.PropertiesUtils;
 
+/**
+ * <b>Utility Tool to process an Excel and extract the information to the
+ * specific objects needed</b>
+ * <p>
+ * Type of Excels that could be processed: <br>
+ * - One or more sheets <br>
+ * - Each sheet has or concrete cells to process (know the complete cell
+ * reference), or data rows of a table to process (know at less initial row, if
+ * don't know the last row the tool process data rows until end of sheet), or
+ * combination of concrete cells and data row table.
+ * <p>
+ * Use method:
+ * <p>
+ * <b>1.- Define an object for each sheet to process with needed fields.</b> If
+ * you want to set the values from each row of a table, you can specify a
+ * different object for this data Example: In a sheet I have 3 concrete cells
+ * (report date, author, version), in a header section, and a table with 3
+ * columns (id, name, counter)
+ * <p>
+ * I create a TableDTO with the following information:<br>
+ * -- BigInteger id<br>
+ * -- String name<br>
+ * -- BigInteger counter
+ * <p>
+ * I create a ReportDTO with the following information: <br>
+ * -- Date reportDate <br>
+ * -- String author <br>
+ * -- String version <br>
+ * -- List&lt;TableDTO&gt; rows<br>
+ * <p>
+ * <b>2.- In your application, define a property file with the following
+ * information</b> (using the example above): <br>
+ * For each sheet: <br>
+ * #Sheet index in the Workbook <br>
+ * #sheetX partial property must be the same that sheetX.index value
+ * informed<br>
+ * <b>sheet0.index=0</b>
+ * <p>
+ * #Class for sheet data sheet <br>
+ * <b>sheet0.info.class = </b>ReportDTO
+ * <p>
+ * # Number of concrete cells. If don't have concrete cells, the value has to be
+ * 0 <br>
+ * <b>sheet0.num.concrete.cells=</b>3
+ * <p>
+ * # For each concrete cell (required if "Number of concrete cells" is greater
+ * than 0) If the cell is a combined cell, the full reference is the first coll
+ * and row of the combined cell<br>
+ * <b>sheet0.cell1.reference=</b>B4<br>
+ * <b>sheet0.cell1.java.type=</b>Date<br>
+ * <b>sheet0.cell1.binding.field=</b>reportDate
+ * <p>
+ * <b>sheet0.cell2.reference=</b>F3<br>
+ * <b>sheet0.cell2.java.type=</b>String<br>
+ * <b>sheet0.cell2.binding.field=</b>author
+ * <p>
+ * <b>sheet0.cell3.reference=</b>F4<br>
+ * <b>sheet0.cell3.java.type=</b>String<br>
+ * <b>sheet0.cell3.binding.field=</b>version
+ * <p>
+ * # First row index with data to process. If don't have rows to process, the
+ * value has to be 0<br>
+ * <b>sheet0.data.row.initial.index=</b>7
+ * <p>
+ * # Last row index with data to process. If you don't know, set 0 to this value
+ * and the application process until last row of the sheet<br>
+ * <b>sheet0.data.row.last.index=</b>0
+ * <p>
+ * # Class Binding for data row<br>
+ * # If you want to use different class to binding data rows information, you
+ * must to have <br>
+ * # a List typed with the object you specify here in the object you set in
+ * sheetX.info.class property<br>
+ * <b>sheet0.data.row.binding.class=</b>TableDTO<br>
+ * #No need to inform next property if the binding class is the same that
+ * sheetX.info.class<br>
+ * <b>sheet0.data.row.binding.field.name=</b>rows
+ * <p>
+ * # Number of columns for each data row <br>
+ * <b>sheet0.data.row.num.cells=</b>5
+ * <p>
+ * # Columns Configuration<br>
+ * <b>sheet0.data.row.cell1.col=</b>A<br>
+ * <b>sheet0.data.row.cell1.java.type=</b>BigInteger<br>
+ * <b>sheet0.data.row.cell1.binding.field=</b>id
+ * <p>
+ * <b>sheet0.data.row.cell2.col=</b>B<br>
+ * <b>sheet0.data.row.cell2.java.type=</b>String<br>
+ * <b>sheet0.data.row.cell2.binding.field=</b>name
+ * <p>
+ * <b>sheet0.data.row.cell3.col=</b>C<br>
+ * <b>sheet0.data.row.cell3.java.type=</b>BigInteger<br>
+ * <b>sheet0.data.row.cell3.binding.field=</b>counter
+ * <p>
+ * <i><b>#----------------------------------------------------------------- <br>
+ * #Java Types admitted in version (Beta) 0.0.1<br>
+ * #----------------------------------------------------------------- </b><br>
+ * <b>#Numeric: </b>Integer, BigInteger, BigDecimal, Double, Long --&gt; This
+ * use CellTypes.NUMERIC <br>
+ * <b>#Text: </b>String --&gt; This use CellTypes.STRING <br>
+ * <b>#Dates: </b>Date (java.util) --&gt; This use CellTypes.NUMERIC<br>
+ * <b>#Logic: </b>Boolean --&gt; This use CellTypes.BOOLEAN</i><br>
+ * <p>
+ * <b>3.- From a class of your application:</b><br>
+ * -- Get the property file defined in section 2 of this documentation like a
+ * ResourceBundle
+ * <p>
+ * -- Define a Map&lt;String, Object&gt;, where String is the SimpleName of one
+ * of the objects you define in the property file as binding class, and Object
+ * is an instance (could be an empty instance) of that Object<br>
+ * Example:<br>
+ * <i>Map&lt;String, Object&gt; mapBindingObjects = new HashMap&lt;&gt;();<br>
+ * mapBindingObjects.put("ReportDTO"; new ReportDTO());<br>
+ * mapBindingObjects.put("TableDTO"; new TableDTO());</i>
+ * <p>
+ * -- Define the map to get the result. It will be a Map&lt;Integer,
+ * List&lt;Object&gt;&gt; where Integer is the sheet index and the list Object
+ * is a List with instance of Object of the type you define in sheet0.info.class
+ * <p>
+ * -- Invoke the reader!!!<br>
+ * <i>Map&lt;Integer, List&lt;Object&gt;&gt; resultMap =
+ * ExcelReader.reader(excelFile, mapBindingObjects, resourceBundle);</i>
+ * <p>
+ * -- Finally, if don't receive errors, you will have a map with a list of
+ * objects that has the excel information<br>
+ * <i>List&lt;ReportDTO&gt; sheet0 = new ArrayList&lt;&gt;();<br>
+ * for (Object obj : resultMap.get(0)) {<br>
+ * sheet0.add((ReportDTO) obj);<br>
+ * }</i>
+ * 
+ * @author afajardo
+ *
+ */
 public class ExcelReader {
 
 	private static ResourceBundle PROPERTIES_REPO = null;
@@ -295,6 +428,15 @@ public class ExcelReader {
 				BigInteger value = new BigDecimal(
 						String.valueOf(sheetExcel.getRow(ref.getRow()).getCell(ref.getCol()).getNumericCellValue()))
 								.toBigInteger();
+				field.set(sheetObject, value);
+			} else if (cell.getCellJavaType().equals(BigDecimal.class.getSimpleName())) {
+				BigDecimal value = new BigDecimal(
+						String.valueOf(sheetExcel.getRow(ref.getRow()).getCell(ref.getCol()).getNumericCellValue()));
+				field.set(sheetObject, value);
+			} else if (cell.getCellJavaType().equals(Integer.class.getSimpleName())) {
+				Integer value = new Double(
+						String.valueOf(sheetExcel.getRow(ref.getRow()).getCell(ref.getCol()).getNumericCellValue()))
+								.intValue();
 				field.set(sheetObject, value);
 			} else if (cell.getCellJavaType().equals(Double.class.getSimpleName())) {
 				Double value = new Double(
