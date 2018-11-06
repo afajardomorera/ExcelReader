@@ -31,9 +31,26 @@ public class ExcelReader {
 	private static ResourceBundle PROPERTIES_REPO = null;
 
 	/**
-	 * Method with and useful example
+	 * Read an Excel file and set the values read into the distinct object
+	 * specified in the input map, using the configuration set in the resource
+	 * bundle
 	 * 
 	 * @param excel
+	 *            File: The Excel File to process and extract information
+	 * @param bindingObjects
+	 *            Map&lt;String, Object&gt;: Map that contains the objects where
+	 *            set the values. Key is the SimpleName of the Object, Value is
+	 *            an instance (could be empty instance) of the object
+	 * @param resource
+	 *            ResourceBundle: The ResourceBundle that has the configuration
+	 *            properties
+	 * 
+	 * @return <b>Map&lt;Integer, List&lt;Object&gt;&gt;</b>: The Map with the
+	 *         objects. Key is the sheet index. Value is a list with the objects
+	 *         referenced in input map param with the values set as they are
+	 *         defined in the configuration property indicated as ResourceBundle
+	 * 
+	 * @author afajardo
 	 */
 	public static Map<Integer, List<Object>> reader(File excel, Map<String, Object> bindingObjects,
 			ResourceBundle resource) throws Exception {
@@ -200,12 +217,12 @@ public class ExcelReader {
 	/**
 	 * Set the configured values to the processing SheetDTO
 	 * 
-	 * @param <b>sheet
-	 *            SheetDTO</b>: DTO that represents the sheet with the
-	 *            configuration defined in the property file
-	 * @param <b>sheetItemStringIndex
-	 *            String</b>: Index of the sheet to process to recover
-	 *            properties value defined
+	 * @param sheet
+	 *            SheetDTO: DTO that represents the sheet with the configuration
+	 *            defined in the property file
+	 * @param sheetItemStringIndex
+	 *            String: Index of the sheet to process to recover properties
+	 *            value defined
 	 * @return <b>void</b>
 	 * 
 	 * @author afajardo
@@ -249,18 +266,17 @@ public class ExcelReader {
 	 * Set the excel value, from the specific cell of the specific excel sheet,
 	 * to the specific field of the specific object.
 	 * 
-	 * @param <b>sheetExcel
-	 *            XSSFSheet</b>: The Excel sheet with the values
-	 * @param <b>sheetClass
-	 *            Class</b>: The object class
-	 * @param <b>sheetObject
-	 *            Object</b>: The object with the field where set the values
-	 * @param <b>cell
-	 *            CellDTO</b>: DTO that represents the cell with the
-	 *            configuration defined in the property file
-	 * @param <b>ref
-	 *            CellReference</b>: Cell reference to get value from the
-	 *            sheetExcel
+	 * @param sheetExcel
+	 *            XSSFSheet: The Excel sheet with the values
+	 * @param sheetClass
+	 *            Class: The object class
+	 * @param sheetObject
+	 *            Object: The object with the field where set the values
+	 * @param cell
+	 *            CellDTO: DTO that represents the cell with the configuration
+	 *            defined in the property file
+	 * @param ref
+	 *            CellReference: Cell reference to get value from the sheetExcel
 	 * @return <b>void</b>
 	 * @throws NoSuchFieldException
 	 * 
@@ -301,12 +317,12 @@ public class ExcelReader {
 	/**
 	 * Process concrete cells defined
 	 * 
-	 * @param <b>sheetItemString
-	 *            String</b>: Index of the sheet to process to recover
-	 *            properties value defined
-	 * @param <b>sheet
-	 *            SheetDTO</b>: DTO that represents the sheet with the
-	 *            configuration defined in the property file
+	 * @param sheetItemString
+	 *            String: Index of the sheet to process to recover properties
+	 *            value defined
+	 * @param sheet
+	 *            SheetDTO: DTO that represents the sheet with the configuration
+	 *            defined in the property file
 	 * @return <b>void</b>
 	 * 
 	 * @author afajardo
@@ -326,12 +342,12 @@ public class ExcelReader {
 	/**
 	 * Process data row cells defined
 	 * 
-	 * @param <b>sheetItemString
-	 *            String</b>: Index of the sheet to process to recover
-	 *            properties value defined
-	 * @param <b>sheet
-	 *            SheetDTO</b>: DTO that represents the sheet with the
-	 *            configuration defined in the property file
+	 * @param sheetItemString
+	 *            String: Index of the sheet to process to recover properties
+	 *            value defined
+	 * @param sheet
+	 *            SheetDTO: DTO that represents the sheet with the configuration
+	 *            defined in the property file
 	 * @return <b>void</b>
 	 * 
 	 * @author afajardo

@@ -1,0 +1,6 @@
+app.test
+app.test.dto
+es.fajardo.app.utilities.excel.reader
+es.fajardo.app.utilities.excel.reader.dto
+es.fajardo.app.utilities.excel.reader.enums
+es.fajardo.app.utilities.excel.reader.utils

@@ -19,15 +19,11 @@ public class PropertiesUtils {
 	/**
 	 * Get the configuration values for the data row cells
 	 * 
-	 * @param <b>sheetItemString
-	 *            String</b>: Index of the sheet to process to recover
-	 *            properties value defined
-	 * @param <b>sheet
-	 *            SheetDTO</b>: DTO that represents the sheet with the
-	 *            configuration defined in the property file
-	 * @param <b>totalCols
-	 *            Integer</b>: Number of total columns to get value from a data
-	 *            row
+	 * sheetItemString String: Index of the sheet to process to recover
+	 * properties value defined sheet SheetDTO: DTO that represents the sheet
+	 * with the configuration defined in the property file totalCols Integer:
+	 * Number of total columns to get value from a data row
+	 * 
 	 * @return <b>void</b>
 	 * 
 	 * @author afajardo
@@ -59,15 +55,11 @@ public class PropertiesUtils {
 	/**
 	 * Get the configuration values for the concrete cells
 	 * 
-	 * @param <b>sheetItemString
-	 *            String</b>: Index of the sheet to process to recover
-	 *            properties value defined
-	 * @param <b>sheet
-	 *            SheetDTO</b>: DTO that represents the sheet with the
-	 *            configuration defined in the property file
-	 * @param <b>totalCells
-	 *            Integer</b>: Number of total concrete cells to get value from
-	 *            the sheet
+	 * sheetItemString String: Index of the sheet to process to recover
+	 * properties value defined sheet SheetDTO: DTO that represents the sheet
+	 * with the configuration defined in the property file totalCells Integer:
+	 * Number of total concrete cells to get value from the sheet
+	 * 
 	 * @return <b>void</b>
 	 * 
 	 * @author afajardo
@@ -101,18 +93,14 @@ public class PropertiesUtils {
 	 * This method obtain the specific Integer property value only for
 	 * properties that not has dependence with other property
 	 * 
-	 * @param <b>propertyToObtain
-	 *            String</b>: the String value of the property to obtain. This
-	 *            String is defined in TipoPropertiesExcelEnum.getPropertyValue
-	 * @param <b>sheet
-	 *            String</b>: In a text format, the number of the sheet in the
-	 *            property file (example, 0 for get information of sheet0
-	 *            defined in the property file, 1 for sheet1...). Null if no
-	 *            need
-	 * @param <b>cell
-	 *            String</b>: In a text format, the number of the cell in the
-	 *            property file (example, 0 for get information of cell0 defined
-	 *            in the property file, 1 for cell1...). Null if no need
+	 * propertyToObtain String: the String value of the property to obtain. This
+	 * String is defined in TipoPropertiesExcelEnum.getPropertyValue sheet
+	 * String: In a text format, the number of the sheet in the property file
+	 * (example, 0 for get information of sheet0 defined in the property file, 1
+	 * for sheet1...). Null if no need cell String: In a text format, the number
+	 * of the cell in the property file (example, 0 for get information of cell0
+	 * defined in the property file, 1 for cell1...). Null if no need
+	 * 
 	 * @return <b>Integer</b>: In a number format, the value of the specific
 	 *         property
 	 * 
@@ -126,18 +114,14 @@ public class PropertiesUtils {
 	 * This method obtain the specific String property value only for properties
 	 * that not has dependence with other property
 	 * 
-	 * @param <b>propertyToObtain
-	 *            String</b>: the String value of the property to obtain. This
-	 *            String is defined in TipoPropertiesExcelEnum.getPropertyValue
-	 * @param <b>sheet
-	 *            String</b>: In a text format, the number of the sheet in the
-	 *            property file (example, 0 for get information of sheet0
-	 *            defined in the property file, 1 for sheet1...). Null if no
-	 *            need
-	 * @param <b>cell
-	 *            String</b>: In a text format, the number of the cell in the
-	 *            property file (example, 0 for get information of cell0 defined
-	 *            in the property file, 1 for cell1...). Null if no need
+	 * propertyToObtain String: the String value of the property to obtain. This
+	 * String is defined in TipoPropertiesExcelEnum.getPropertyValue sheet
+	 * String: In a text format, the number of the sheet in the property file
+	 * (example, 0 for get information of sheet0 defined in the property file, 1
+	 * for sheet1...). Null if no need cell String: In a text format, the number
+	 * of the cell in the property file (example, 0 for get information of cell0
+	 * defined in the property file, 1 for cell1...). Null if no need
+	 * 
 	 * @return <b>String</b>: In a text format, the value of the specific
 	 *         property
 	 * 
@@ -150,18 +134,14 @@ public class PropertiesUtils {
 	/**
 	 * Get the value from a configured property
 	 * 
-	 * @param <b>propertyToObtain
-	 *            String</b>: the String value of the property to obtain. This
-	 *            String is defined in TipoPropertiesExcelEnum.getPropertyValue
-	 * @param <b>sheet
-	 *            String</b>: In a text format, the number of the sheet in the
-	 *            property file (example, 0 for get information of sheet0
-	 *            defined in the property file, 1 for sheet1...). Null if no
-	 *            need
-	 * @param <b>cell
-	 *            String</b>: In a text format, the number of the cell in the
-	 *            property file (example, 0 for get information of cell0 defined
-	 *            in the property file, 1 for cell1...). Null if no need
+	 * propertyToObtain String: the String value of the property to obtain. This
+	 * String is defined in TipoPropertiesExcelEnum.getPropertyValue sheet
+	 * String: In a text format, the number of the sheet in the property file
+	 * (example, 0 for get information of sheet0 defined in the property file, 1
+	 * for sheet1...). Null if no need cell String: In a text format, the number
+	 * of the cell in the property file (example, 0 for get information of cell0
+	 * defined in the property file, 1 for cell1...). Null if no need
+	 * 
 	 * @return <b>String</b>: In a text format, the value of the specific
 	 *         property
 	 * 
