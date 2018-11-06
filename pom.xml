@@ -23,10 +23,20 @@
 	    <artifactId>poi-ooxml</artifactId>
 	    <version>${poi.version}</version>
   	</dependency>
+  	
+  	<!-- APACHE COMMONS -->
+  	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+	<dependency>
+    	<groupId>org.apache.commons</groupId>
+    	<artifactId>commons-collections4</artifactId>
+    	<version>${apache.commons.version}</version>
+	</dependency>
+  	
   </dependencies>
   
   <!-- PROPERTIES -->
   <properties>
   	<poi.version>3.13</poi.version>
+  	<apache.commons.version>4.0</apache.commons.version>
   </properties>
 </project>
