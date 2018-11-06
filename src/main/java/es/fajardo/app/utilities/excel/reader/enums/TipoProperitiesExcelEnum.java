@@ -1,4 +1,4 @@
-package fajardo.utilities.excel.reader.enums;
+package es.fajardo.app.utilities.excel.reader.enums;
 
 public enum TipoProperitiesExcelEnum {
 

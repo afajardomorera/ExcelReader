@@ -1,13 +1,13 @@
-package fajardo.utilities.excel.reader;
+package es.fajardo.app.utilities.excel.reader;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import fajardo.utilities.excel.reader.dto.CellDTO;
-import fajardo.utilities.excel.reader.dto.SheetDTO;
-import fajardo.utilities.excel.reader.dto.WorkbookDTO;
-import fajardo.utilities.excel.reader.enums.TipoProperitiesExcelEnum;
+import es.fajardo.app.utilities.excel.reader.dto.CellDTO;
+import es.fajardo.app.utilities.excel.reader.dto.SheetDTO;
+import es.fajardo.app.utilities.excel.reader.dto.WorkbookDTO;
+import es.fajardo.app.utilities.excel.reader.enums.TipoProperitiesExcelEnum;
 
 public class ExcelReader {
 

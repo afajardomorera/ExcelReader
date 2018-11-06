@@ -1,4 +1,4 @@
-package fajardo.utilities.excel.reader.dto;
+package es.fajardo.app.utilities.excel.reader.dto;
 
 import java.util.List;
 
