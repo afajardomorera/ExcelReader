@@ -1,4 +1,4 @@
-package es.fajardo.app.utilities.excel.reader.enums;
+package es.fajardo.app.utilities.excel.reader.utils;
 
 import java.util.ResourceBundle;
 
@@ -6,6 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import es.fajardo.app.utilities.excel.reader.dto.CellDTO;
 import es.fajardo.app.utilities.excel.reader.dto.SheetDTO;
+import es.fajardo.app.utilities.excel.reader.enums.TipoProperitiesExcelEnum;
 
 public class PropertiesUtils {
 

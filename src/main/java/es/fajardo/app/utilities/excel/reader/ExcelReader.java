@@ -23,8 +23,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import es.fajardo.app.utilities.excel.reader.dto.CellDTO;
 import es.fajardo.app.utilities.excel.reader.dto.SheetDTO;
 import es.fajardo.app.utilities.excel.reader.dto.WorkbookDTO;
-import es.fajardo.app.utilities.excel.reader.enums.PropertiesUtils;
 import es.fajardo.app.utilities.excel.reader.enums.TipoProperitiesExcelEnum;
+import es.fajardo.app.utilities.excel.reader.utils.PropertiesUtils;
 
 public class ExcelReader {
 
