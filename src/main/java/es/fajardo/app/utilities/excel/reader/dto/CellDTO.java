@@ -3,10 +3,11 @@ package es.fajardo.app.utilities.excel.reader.dto;
 public class CellDTO {
 
 	private String cellReference;
-	private String cellType;
+	private Integer cellType;
 	private String cellClass;
 	private String cellField;
 	private String cellMethod;
+	private String cellJavaType;
 	private boolean concreteCell;
 
 	public String getCellReference() {
@@ -17,11 +18,11 @@ public class CellDTO {
 		this.cellReference = cellReference;
 	}
 
-	public String getCellType() {
+	public Integer getCellType() {
 		return cellType;
 	}
 
-	public void setCellType(String cellType) {
+	public void setCellType(Integer cellType) {
 		this.cellType = cellType;
 	}
 
@@ -57,6 +58,14 @@ public class CellDTO {
 		this.concreteCell = concreteCell;
 	}
 
+	public String getCellJavaType() {
+		return cellJavaType;
+	}
+
+	public void setCellJavaType(String cellJavaType) {
+		this.cellJavaType = cellJavaType;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -70,6 +79,8 @@ public class CellDTO {
 		builder.append(cellField);
 		builder.append(", cellMethod=");
 		builder.append(cellMethod);
+		builder.append(", cellJavaType=");
+		builder.append(cellJavaType);
 		builder.append(", concreteCell=");
 		builder.append(concreteCell);
 		builder.append("]");
