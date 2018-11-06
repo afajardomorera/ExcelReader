@@ -2,6 +2,8 @@ package es.fajardo.app.utilities.excel.reader;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import es.fajardo.app.utilities.excel.reader.dto.CellDTO;
@@ -11,14 +13,16 @@ import es.fajardo.app.utilities.excel.reader.enums.TipoProperitiesExcelEnum;
 
 public class ExcelReader {
 
-	private static ResourceBundle EXCEL_REFERENCES = ResourceBundle.getBundle("excel/managedExcel");
+	private static ResourceBundle propertiesRepo = null;
 
 	/**
 	 * Method with and useful example Input: Need a Map of
 	 * 
 	 * @param excel
 	 */
-	public static void reader(File excel) {
+	public static void reader(File excel, Map<Integer, List<Object>> mapObjectsBinding, String propertyFile) {
+
+		propertiesRepo = ResourceBundle.getBundle("excel/" + propertyFile);
 
 		WorkbookDTO wb = new WorkbookDTO();
 
@@ -200,7 +204,7 @@ public class ExcelReader {
 		// propertyKey = propertyToObtain;
 		// }
 		// get the property value for the property key
-		String propertyValue = EXCEL_REFERENCES.getString(propertyKey);
+		String propertyValue = propertiesRepo.getString(propertyKey);
 		System.out.println(propertyKey + " = " + propertyValue);
 		return propertyValue;
 	}
