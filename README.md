@@ -1,5 +1,5 @@
 # ExcelReader
-Utility Tool to process an Excel and extract the information to the specific objects needed
+Java JAR Utility Tool to process an Excel and extract the information to the specific objects needed
 Type of Excels that could be processed: 
 - One or more sheets 
 - Each sheet has or concrete cells to process (know the complete cell reference), or data rows of a table to process (know at less initial row, if don't know the last row the tool process data rows until end of sheet), or combination of concrete cells and data row table.
