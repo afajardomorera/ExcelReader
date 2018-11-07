@@ -2,7 +2,7 @@ package es.fajardo.app.utilities.excel.reader.enums;
 
 public enum TipoProperitiesExcelEnum {
 
-	WB_NUM_SHEETS("wb.num.sheets"), //
+	SHEEET_INDEX_TO_PROCESS("sheet.index.to.process"), //
 	SHEET_INDEX("sheet%s.index"), //
 	SHEET_NUM_CONCRETE_CELLS("sheet%s.num.concrete.cells"), //
 	SHEET_CONCRETE_CELL_REFERENCE("sheet%s.cell%s.reference"), //

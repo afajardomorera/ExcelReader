@@ -58,6 +58,10 @@ import es.fajardo.app.utilities.excel.reader.utils.PropertiesUtils;
  * <p>
  * <b>2.- In your application, define a property file with the following
  * information</b> (using the example above): <br>
+ * 
+ * # Sheet indexes to process (values with comma separates)<br>
+ * sheet.index.to.process=0,1
+ * <p>
  * For each sheet: <br>
  * #Sheet index in the Workbook <br>
  * #sheetX partial property must be the same that sheetX.index value
@@ -202,10 +206,17 @@ public class ExcelReader {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		Integer totalSheets = wbExcel.getNumberOfSheets();
 
-		// Sheets iteration (starts always in 1)
-		for (int sheetItem = 0; sheetItem < totalSheets; sheetItem++) {
+		String sheetIndexToProcess = PROPERTIES_REPO
+				.getString(TipoProperitiesExcelEnum.SHEEET_INDEX_TO_PROCESS.getPropertyValue());
+		String[] differentIndexes = sheetIndexToProcess.split(",");
+		List<Integer> sheetIndexes = new ArrayList<>();
+		for (String index : differentIndexes) {
+			sheetIndexes.add(Integer.valueOf(index));
+		}
+
+		// Sheets iteration
+		for (Integer sheetItem : sheetIndexes) {
 			if (CollectionUtils.isEmpty(wbDTO.getSheets())) {
 				wbDTO.setSheets(new ArrayList<SheetDTO>());
 			}
@@ -228,13 +239,12 @@ public class ExcelReader {
 		// For only util for console log
 		int i = 1;
 		for (SheetDTO sheet : wbDTO.getSheets()) {
-			System.out.println("Sheet: " + i);
+			System.out.println("Sheet: " + sheet.getSheetIndex());
 			if (CollectionUtils.isNotEmpty(sheet.getCells())) {
 				for (CellDTO cell : sheet.getCells()) {
 					System.out.println(cell.toString());
 				}
 			}
-			i++;
 		}
 
 		// Initialization of the map to return
