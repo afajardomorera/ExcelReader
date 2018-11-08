@@ -17,7 +17,7 @@ I create a ReportDTO with the following information:<br>
 -- Date reportDate <br>
 -- String author <br>
 -- String version <br>
--- List<TableDTO> rows<br><br> (List of TableDTO)
+-- List<TableDTO> rows (List of TableDTO)<br><br> 
 2.- In your application, define a property file with the following information (using the example above): <br>
 
 <b>Sheet indexes to process (values with comma separates)</b><br>
