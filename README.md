@@ -17,7 +17,7 @@ I create a ReportDTO with the following information:<br>
 -- Date reportDate <br>
 -- String author <br>
 -- String version <br>
--- List<TableDTO> rows<br><br>
+-- List&lt;TableDTO&gt; rows<br><br>
 2.- In your application, define a property file with the following information (using the example above): <br>
 
 <b>Sheet indexes to process (values with comma separates)</b><br>
@@ -94,13 +94,13 @@ Map<String, Object> mapBindingObjects = new HashMap<>();<br>
 mapBindingObjects.put("ReportDTO"; new ReportDTO());<br>
 mapBindingObjects.put("TableDTO"; new TableDTO());<br>
 <p>
--- Define the map to get the result. It will be a Map<Integer, List<Object>> where Integer is the sheet index and the list Object is a List with instance of Object of the type you define in sheet0.info.class<br><br>
+-- Define the map to get the result. It will be a Map<Integer, List&lt;Objectglt;> where Integer is the sheet index and the list Object is a List with instance of Object of the type you define in sheet0.info.class<br><br>
 
 -- Invoke the reader!!!<br>
-Map<Integer, List<Object>> resultMap = ExcelReader.reader(excelFile, mapBindingObjects, resourceBundle);
+Map<Integer, List&lt;Object&gt;> resultMap = ExcelReader.reader(excelFile, mapBindingObjects, resourceBundle);
 <p>
 -- Finally, if don't receive errors, you will have a map with a list of objects that has the excel information<br>
-List<ReportDTO> sheet0 = new ArrayList<>();<br>
+List&lt;ReportDTO&gt; sheet0 = new ArrayList<>();<br>
 for (Object obj : resultMap.get(0)) {<br>
 sheet0.add((ReportDTO) obj);<br>
   }
