@@ -215,7 +215,7 @@ public class ExcelReader {
 			sheetIndexes.add(Integer.valueOf(index));
 		}
 
-		// Sheets iteration
+		// Sheets iteration process
 		for (Integer sheetItem : sheetIndexes) {
 			if (CollectionUtils.isEmpty(wbDTO.getSheets())) {
 				wbDTO.setSheets(new ArrayList<SheetDTO>());
